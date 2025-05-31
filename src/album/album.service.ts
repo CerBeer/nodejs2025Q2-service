@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateAlbumDto } from './dto/create-album.dto';
 import { UpdateAlbumDto } from './dto/update-album.dto';
 import { v4 } from 'uuid';
-import { albums, favorites, tracks } from 'src/memdb/memdb';
+import { albums, favs, tracks } from 'src/memdb/memdb';
 
 @Injectable()
 export class AlbumService {
@@ -69,10 +69,6 @@ export class AlbumService {
       }
     });
 
-    favorites.albums.map((albumId) => {
-      if (albumId === id) {
-        albumId = null;
-      }
-    });
+    favs.albums = favs.albums.filter((albumId) => albumId !== id);
   }
 }

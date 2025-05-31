@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateTrackDto } from './dto/create-track.dto';
 import { UpdateTrackDto } from './dto/update-track.dto';
-import { favorites, tracks } from 'src/memdb/memdb';
+import { favs, tracks } from 'src/memdb/memdb';
 import { v4 } from 'uuid';
 
 @Injectable()
@@ -55,10 +55,6 @@ export class TrackService {
 
     tracks.splice(index, 1);
 
-    favorites.tracks.map((trackId) => {
-      if (trackId === id) {
-        trackId = null;
-      }
-    });
+    favs.tracks = favs.tracks.filter((trackId) => trackId !== id);
   }
 }

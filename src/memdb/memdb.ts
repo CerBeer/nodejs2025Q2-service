@@ -8,7 +8,7 @@ export const users: User[] = [];
 export const artists: Artist[] = [];
 export const albums: Album[] = [];
 export const tracks: Track[] = [];
-export const favorites: Favs = {
+export const favs: Favs = {
   artists: [],
   albums: [],
   tracks: [],

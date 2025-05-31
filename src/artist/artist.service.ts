@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateArtistDto } from './dto/create-artist.dto';
 import { UpdateArtistDto } from './dto/update-artist.dto';
 import { v4 } from 'uuid';
-import { albums, artists, favorites, tracks, users } from 'src/memdb/memdb';
+import { albums, artists, favs, tracks, users } from 'src/memdb/memdb';
 
 @Injectable()
 export class ArtistService {
@@ -64,10 +64,6 @@ export class ArtistService {
       }
     });
 
-    favorites.artists.forEach((artistId) => {
-      if (artistId === id) {
-        artistId = null;
-      }
-    });
+    favs.artists = favs.artists.filter((artistId) => artistId !== id);
   }
 }

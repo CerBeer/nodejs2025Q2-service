@@ -1,1 +1,1 @@
-export class CreateFavDto {}
+export class CreateFavsDto {}
