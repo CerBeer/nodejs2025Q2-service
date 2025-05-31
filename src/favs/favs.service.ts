@@ -1,5 +1,4 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { Artist } from 'src/artist/entities/artist.entity';
 import { favs, artists, albums, tracks } from 'src/memdb/memdb';
 
 @Injectable()

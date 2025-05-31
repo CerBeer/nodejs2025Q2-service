@@ -14,7 +14,7 @@ git clone https://github.com/CerBeer/nodejs2025Q2-service
 ## Change directory
 
 ```
-cd nodejs2024Q3-service
+cd nodejs2025Q2-service
 ```
 
 ## Branch checkout
