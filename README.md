@@ -8,13 +8,31 @@
 ## Downloading
 
 ```
-git clone {repository URL}
+git clone https://github.com/CerBeer/nodejs2025Q2-service
+```
+
+## Change directory
+
+```
+cd nodejs2025Q2-service
+```
+
+## Branch checkout
+
+```
+git checkout develop-pt1
 ```
 
 ## Installing NPM modules
 
 ```
 npm install
+```
+
+## Create .env file (based on .env.example)
+
+```
+./.env
 ```
 
 ## Running application
