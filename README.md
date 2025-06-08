@@ -20,7 +20,7 @@ cd nodejs2025Q2-service
 ## Branch checkout
 
 ```
-git checkout develop-pt1
+git checkout develop-pt2
 ```
 
 ## Installing NPM modules

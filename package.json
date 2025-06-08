@@ -22,7 +22,12 @@
     "test:refresh": "cross-env TEST_MODE=auth jest --testPathPattern refresh.e2e.spec.ts --noStackTrace --runInBand",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "prisma:studio": "npx prisma studio",
+    "docker:images": "docker images",
+    "docker:pg:start:app": "npx prisma generate && npx prisma migrate deploy && npm run start:dev",
+    "docker:pg:start": "docker-compose -f docker-compose-pg.yaml up -d && dotenv -e .env.local -- npm run docker:pg:start:app",
+    "docker:pg:stop": "docker-compose -f docker-compose-pg.yaml down"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.16",
