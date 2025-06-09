@@ -29,51 +29,58 @@ git checkout develop-pt2
 npm install
 ```
 
-## Create .env file (based on .env.example)
+## For Windows Open wsl terminal
+
+## Run containers
 
 ```
-./.env
+npm run docker:start
 ```
 
-## Running application
+## Wait until the application is fully launched
+#### the necessary images are downloaded, containers are assembled and launched, this will be indicated by the appearance of the following message in the terminal
+
+- ```[NestApplication] Nest application successfully started```
+
+## After starting the app on port (4000 as default) you can open in your browser OpenAPI documentation by typing
 
 ```
-npm start
+http://localhost:4000/doc/
 ```
 
-After starting the app on port (4000 as default) you can open
-in your browser OpenAPI documentation by typing http://localhost:4000/doc/.
-For more information about OpenAPI/Swagger please visit https://swagger.io/.
-
-## Testing
-
-After application running open new terminal and enter:
-
-To run all tests without authorization
+## Open another wsl console and run the command to run a general test
 
 ```
 npm run test
 ```
 
-To run only one of all test suites
+## To run tests one by one
 
 ```
-npm run test -- <path to suite>
+npm run test user && npm run test album && npm run test artist && npm run test track && npm run test favorites
 ```
 
-To run all test with authorization
+## Stop containers
 
 ```
-npm run test:auth
+npm run docker:stop
 ```
 
-To run only specific test suite with authorization
+## Check docker images size
 
 ```
-npm run test:auth -- <path to suite>
+npm run docker:images
 ```
 
-### Auto-fix and format
+## Scan Docker image for vulnerabilities
+
+```
+npm run docker:scan
+```
+
+# What else can you do
+
+## Auto-fix and format
 
 ```
 npm run lint
@@ -82,9 +89,3 @@ npm run lint
 ```
 npm run format
 ```
-
-### Debugging in VSCode
-
-Press <kbd>F5</kbd> to debug.
-
-For more information, visit: https://code.visualstudio.com/docs/editor/debugging

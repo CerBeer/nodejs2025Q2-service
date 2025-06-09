@@ -38,7 +38,10 @@ export class AlbumController {
 
   @UsePipes(new ValidationPipe())
   @Put(':id')
-  update(@Param('id', ParseUUIDPipe) id: string, @Body() updateAlbumDto: UpdateAlbumDto) {
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateAlbumDto: UpdateAlbumDto,
+  ) {
     return this.albumService.update(id, updateAlbumDto);
   }
 

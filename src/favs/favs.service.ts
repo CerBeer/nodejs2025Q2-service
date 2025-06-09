@@ -35,7 +35,10 @@ export class FavsService {
   async addTrack(id: string) {
     const track = await this.prisma.track.findUnique({ where: { id } });
     if (!track) {
-      throw new HttpException('Track not found', HttpStatus.UNPROCESSABLE_ENTITY);
+      throw new HttpException(
+        'Track not found',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
     }
     const newTrack = await this.prisma.track.update({
       where: { id },
@@ -49,7 +52,10 @@ export class FavsService {
       where: { id, favorite: true },
     });
     if (!track) {
-      throw new HttpException('Track not found in Favorites', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        'Track not found in Favorites',
+        HttpStatus.NOT_FOUND,
+      );
     }
     await this.prisma.track.update({
       where: { id },
@@ -62,7 +68,10 @@ export class FavsService {
       where: { id },
     });
     if (!album) {
-      throw new HttpException('Album not found', HttpStatus.UNPROCESSABLE_ENTITY);
+      throw new HttpException(
+        'Album not found',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
     }
     return await this.prisma.album.update({
       where: { id },
@@ -75,7 +84,10 @@ export class FavsService {
       where: { id, favorite: true },
     });
     if (!album) {
-      throw new HttpException('Album not found in Favorites', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        'Album not found in Favorites',
+        HttpStatus.NOT_FOUND,
+      );
     }
     await this.prisma.album.update({
       where: { id },
@@ -88,7 +100,10 @@ export class FavsService {
       where: { id },
     });
     if (!artist) {
-      throw new HttpException('Artist not found', HttpStatus.UNPROCESSABLE_ENTITY);
+      throw new HttpException(
+        'Artist not found',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
     }
     await this.prisma.artist.update({
       where: { id },
@@ -101,7 +116,10 @@ export class FavsService {
       where: { id, favorite: true },
     });
     if (!artist) {
-      throw new HttpException('Artist not found in Favorites', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        'Artist not found in Favorites',
+        HttpStatus.NOT_FOUND,
+      );
     }
     await this.prisma.artist.update({
       where: { id },

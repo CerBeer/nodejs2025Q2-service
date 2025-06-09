@@ -38,7 +38,10 @@ export class TrackController {
 
   @UsePipes(new ValidationPipe())
   @Put(':id')
-  changeTrack(@Param('id', ParseUUIDPipe) id: string, @Body() updateTrackDto: UpdateTrackDto) {
+  changeTrack(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateTrackDto: UpdateTrackDto,
+  ) {
     return this.trackService.update(id, updateTrackDto);
   }
 
