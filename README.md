@@ -20,7 +20,7 @@ cd nodejs2025Q2-service
 ## Branch checkout
 
 ```
-git checkout develop-pt2
+git checkout develop-pt3
 ```
 
 ## Installing NPM modules
@@ -37,6 +37,12 @@ npm install
 npm run docker:start
 ```
 
+## Or Run database container and start app local. This will allow you to see the logs in the logs folder in the application folder
+
+```
+npm run docker:pg:start
+```
+
 ## Wait until the application is fully launched
 #### the necessary images are downloaded, containers are assembled and launched, this will be indicated by the appearance of the following message in the terminal
 
@@ -51,32 +57,28 @@ http://localhost:4000/doc/
 ## Open another wsl console and run the command to run a general test
 
 ```
-npm run test
+npm run test:auth
 ```
 
 ## To run tests one by one
 
 ```
-npm run test user && npm run test album && npm run test artist && npm run test track && npm run test favorites
+npm run test:auth user && npm run test:auth album && npm run test:auth artist && npm run test:auth track && npm run test:auth favorites
 ```
 
-## Stop containers
+## Stop database and app containers
 
 ```
 npm run docker:stop
 ```
 
-## Check docker images size
+## OR Stop database container and app
 
 ```
-npm run docker:images
+press ctrl+c to stop app and run command
+npm run docker:pg:stop
 ```
 
-## Scan Docker image for vulnerabilities
-
-```
-npm run docker:scan
-```
 
 # What else can you do
 
