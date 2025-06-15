@@ -27,12 +27,14 @@
     "docker:images": "docker images",
     "docker:start:app": "npm install --omit=dev && npm cache clean --force && npx prisma generate && npx prisma migrate deploy && nest start",
     "docker:start": "docker-compose up --watch",
+    "docker:build:start": "docker-compose up --build --watch",
     "docker:stop": "docker-compose down",
     "docker:pg:start:app": "dotenv -e .env.local -- npm run start:dev",
     "docker:pg:start:app:init": "npx prisma generate && npx prisma migrate deploy && npm run start:dev",
     "docker:pg:start": "docker-compose -f docker-compose-pg.yaml up -d && dotenv -e .env.local -- npm run docker:pg:start:app:init",
     "docker:pg:stop": "docker-compose -f docker-compose-pg.yaml down",
-    "docker:scan": "docker scout cves cerbeer/nodejs2024q3-service-app:latest"
+    "docker:scan": "docker scout cves cerbeer/nodejs2024q3-service-app:latest",
+    "docker:scan:local": "docker run --rm -v //var/run/docker.sock:/var/run/docker.sock aquasec/trivy --scanners vuln image nodejs2025q2-service-app"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.16",
